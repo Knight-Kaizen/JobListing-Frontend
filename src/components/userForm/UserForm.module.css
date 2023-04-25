@@ -1,0 +1,29 @@
+.main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+}
+
+.form{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.tandc{
+    display: flex;
+    flex-direction: row;
+}
+.check{
+    width: 1rem;
+}
+.text1{
+    width: 10rem;
+}
+p{
+    margin: 0;
+}
