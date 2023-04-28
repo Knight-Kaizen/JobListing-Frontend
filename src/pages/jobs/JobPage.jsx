@@ -59,11 +59,13 @@ export default
 
 
 
-    const handlePositionSearch = async () => {
+    const handlePositionSearch = async (key) => {
         try {
             console.log('Handling search on basis of title');
             const res = await axios.get(`http://localhost:8000/job?job_position=${key}`);
-            console.log(res);
+            console.log(res.data);
+            setDisplayJobs([]);
+            setJobsAvailable(res.data);
         }
         catch (err) {
             console.log('error', err);
