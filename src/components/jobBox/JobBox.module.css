@@ -1,0 +1,55 @@
+.main{
+    width: 40rem;
+    height: 6rem;
+    box-sizing: border-box;
+    margin: 1rem 0;
+    background-color: red;
+    display: flex;
+}
+.box1{
+    width: 5rem;
+    height: 100%;
+    background-color: violet;
+
+    display: flex;
+    flex-direction: column;
+}
+.box11, .box12, .box13{
+    width: 100%;
+    height: 2rem;
+}
+.box12, .box13{
+    display: flex;
+
+}
+.box121, .box122, .box123{
+    width: 33%;
+    height: 100%;
+}
+
+.box131, .box132{
+    width: 50%;
+    height: 100%;
+}
+.box2{
+    width: 15rem;
+    height: 100%;
+    background-color: indianred;
+}.box3{
+    width: 20rem;
+    height: 100%;
+    background-color: blue;
+
+    display: flex;
+    flex-direction: column;
+}
+.box31, .box32{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.box311{
+    width: 25%;
+    height: 100%;
+}
+

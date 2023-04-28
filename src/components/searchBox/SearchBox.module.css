@@ -1,0 +1,81 @@
+.main{
+    width: 40rem;
+    height: 8rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.top{
+    margin-bottom: .5rem;
+    height: 3rem;
+    width: 32rem;
+    background-color: red;
+    display: flex;
+
+}
+.icon{
+    height: 100%;
+    width: 2rem;
+}
+.searchBar{
+    height: 100%;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+    padding: .6rem;
+}
+.bottom{
+    height: 3rem;
+    width: 32rem;
+    background-color: blue;
+
+    display: flex;
+    align-items: center;
+}
+.skillSelect{
+    width: 6.4rem;
+    height: 80%;
+    background-color: violet;
+}
+.selectedSkills{
+    width: 19.2rem;
+    height: 80%;
+    background-color: indigo;
+}
+.addjobButton{
+    width: 6.4rem;
+    height: 80%;
+    background-color: green;
+}
+.titleSearchResults{
+    width: 32rem;
+    min-height: 1rem;
+    max-height: 10rem;
+    overflow: scroll;
+    position: absolute;
+    top: 4rem;
+    left: 10%;
+    background-color: #fff;
+    visibility: hidden;
+}
+.showPositions{
+    visibility: visible;
+}
+.skillSearchResults{
+    width: 8rem;
+    background-color: white;
+    position: absolute;
+    top: 7rem;
+    left: 10%;
+    min-height: 1rem;
+    max-height: 10rem;
+    overflow: scroll;
+    position: absolute;
+    visibility: hidden;
+}
+.showSkills{
+    visibility: visible;
+}
