@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './SearchBox.module.css';
+
 export default function SearchBox(props) {
-    // console.log('In searchBox:' , props);
+
+//------------------------------ console.log('In searchBox:' , props);
     const [jobsAvailable, setJobsAvailable] = useState([]);
     const skillsAvailable = new Set();
     const positionsAvailable = new Set();
@@ -37,11 +39,11 @@ export default function SearchBox(props) {
                 })
                 queryString = queryString.slice(0, -1);
                 props.skillSearch(queryString);
-                console.log('show query string:', queryString);
+                // console.log('show query string:', queryString);
                 
             }
             catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         }
         querySearch();
@@ -49,20 +51,20 @@ export default function SearchBox(props) {
 
     }, [selectedSkills])
     const handleSkillSelection = async (key) => {
-        console.log('You got a click', key);
+        // console.log('You got a click', key);
         setShowSkillsAvailable(false);
         setSelectedSkills((prev) => {
-            console.log('showing previous skills', prev);
+            // console.log('showing previous skills', prev);
             return ([...prev, key]);
         })
-        console.log('show selected skills', selectedSkills);
-        // fetchJobs('skills');
+        // console.log('show selected skills', selectedSkills);
+//----------------------------------------------fetchJobs('skills');
 
-        // setJobsAvailable(res.data);
+//----------------------------------------setJobsAvailable(res.data);
 
     }
     useEffect(() => {
-        // extracting skills from each job and inserting it in set.
+//----------- extracting skills from each job and inserting it in set.
         for (let i = 0; i < jobsAvailable.length; i++) {
 
             jobsAvailable[i].skills_required.forEach((key) => {
@@ -71,7 +73,7 @@ export default function SearchBox(props) {
             positionsAvailable.add(jobsAvailable[i].job_position);
 
         }
-        //rendering skills
+//---------------------------------------------------rendering skills
         if (skillsAvailable.size != 0)
             skillsAvailable.forEach((key) => {
                 setShowSkills((prev) => {
@@ -93,19 +95,19 @@ export default function SearchBox(props) {
     }, [])
 
     const searchPosition = async (key) => {
-        console.log('Search based on position');
+        // console.log('Search based on position');
         setShowPositionsAvailable(false);
         props.positionSearch(key);
-        
+        setPositionSearch(key);
     }
     //show only positions which relate to searched item
     useEffect(() => {
         setShowPositions([]);
-        console.log('this position is searched', positionSearch);
+        // console.log('this position is searched', positionSearch);
         for (let i = 0; i < jobsAvailable.length; i++) {
             positionsAvailable.add(jobsAvailable[i].job_position);
         }
-        console.log('positions available', positionsAvailable)
+        // console.log('positions available', positionsAvailable)
         let displayPositions = [];
         positionsAvailable.forEach((key) => {
             const check = key.toLowerCase();
@@ -136,13 +138,13 @@ export default function SearchBox(props) {
 
     }
     const handleSkills = () => {
-        console.log('In handle skills div');
+        // console.log('In handle skills div');
 
         setShowSkillsAvailable(showSkillsAvailable ? false : true);
-        console.log('skills showing?', showSkillsAvailable);
+        // console.log('skills showing?', showSkillsAvailable);
     }
 
-    //------------------------UI----------------------------
+//-------------------------------------UI----------------------------
 
     return (
         <>
@@ -161,7 +163,7 @@ export default function SearchBox(props) {
                 <div className={styles.bottom}>
                     <div className={styles.skillSelect} onClick={handleSkills}>skills</div>
                     <div className={styles.selectedSkills}>show selcetions</div>
-                    <button className={styles.addjobButton}>Add jobs</button>
+                    <button className={styles.addjobButton} onClick={props.open}>Add jobs</button>
                     <div className={`${styles.skillSearchResults} ${showSkillsAvailable && styles.showSkills}`}
 
                     >

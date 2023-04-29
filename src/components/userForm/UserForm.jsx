@@ -30,9 +30,10 @@ export default
                 email,
                 password
             })
-            console.log(res);
-            console.log(res.data);
-            setFlashMessage(res.data);
+            // console.log(res);
+            // console.log(res.data);
+            // console.log(res.data.token);
+            // setFlashMessage(res.data);
             return true;
 
         }
@@ -98,7 +99,8 @@ export default
             if(userRegisterationSuccess){
                 //navigate to job page
                 console.log('user registered sucessfully');
-                navigate('/job');
+                // navigate('/job');
+                props.showLogin();
 
             }
         }

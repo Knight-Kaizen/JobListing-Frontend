@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import styles from './JobPage.module.css';
 import SearchBox from "../../components/searchBox/SearchBox";
 import JobBox from "../../components/jobBox/JobBox";
+import JobAddForm from "../../components/jobAddForm/JobAddForm";
 export default
     function JobPage() {
     const [jobsAvailable, setJobsAvailable] = useState([]);
@@ -86,33 +87,47 @@ export default
             console.log(err);
         }
     }
-
+    const [showModal, setShowModal] = useState(false);
+    const handleModalClose = ()=>{
+        setShowModal(false);
+        fetchAllJobs();
+    }
+    const handleModalOpen = ()=>{
+        setShowModal(true);
+    }
+    
 
 
 
     //---------------------------UI------------------------------------
 
     return (
+        <>
+        
         <div className={styles.main}>
             <div className={styles.navbar}><Navbar showUser='true' /></div>
-            <div className={styles.body}>
-                <div className={styles.box1}>
-                    <SearchBox
-                        positionSearch={handlePositionSearch}
-                        skillSearch={handleSkillSearch}
-                    />
-                </div>
-                <div className={styles.box2}>
-                    {displayJobs}
-                </div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-                <div className={styles.box2}>Job container</div>
-            </div>
+            {showModal && <JobAddForm
+            // add = {handleAddNewJob}
+            // edit = {handleEditJob}
+            show = {showModal}
+            submit = {handleModalClose}
+            
+        />}
+           {!showModal &&  <div className={styles.body}>
+
+<div className={styles.box1}>
+    <SearchBox
+        positionSearch={handlePositionSearch}
+        skillSearch={handleSkillSearch}
+        open = {handleModalOpen}
+    />
+</div>
+<div className={styles.box2}>
+    {displayJobs}
+</div>
+
+</div>}
         </div>
+        </>
     )
 }
